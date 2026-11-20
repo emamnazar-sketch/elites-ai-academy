@@ -6,7 +6,7 @@
 <title>Terms &amp; Conditions — Elites AI Academy</title>
 <meta name="description" content="The rules for using Elites AI Academy: accounts, membership, lessons, and cancellations, in plain words.">
 <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
-<link rel="stylesheet" href="landing.css?v=2">
+<link rel="stylesheet" href="landing.css?v=3">
 </head>
 <body>
 
@@ -14,66 +14,161 @@
   <div class="wrap topbar-in">
     <a href="index.html"><img class="topbar-logo" src="assets/logo.jpg" alt="Elites AI Academy"></a>
     <div class="topbar-actions">
-      <a class="btn-login" href="portal.html">Student Login</a>
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" id="lang-en" class="active">English</button>
+        <button type="button" id="lang-fa">دری</button>
+      </span>
+      <a class="btn-login" href="portal.html" data-i18n="login">Student Login</a>
     </div>
   </div>
 </header>
 
 <main class="wrap legal">
-  <h1>Terms &amp; Conditions</h1>
-  <p class="legal-updated">Last updated: November 20, 2026</p>
+  <h1 data-i18n="h1">Terms &amp; Conditions</h1>
+  <p class="legal-updated" data-i18n="updated">Last updated: November 20, 2026</p>
 
-  <p>These terms are the agreement between you and Elites AI Academy when you use elitesaiacademy.com and the student portal. By creating an account or using the site, you agree to them. Questions: <a href="mailto:support@elitesaiacademy.com">support@elitesaiacademy.com</a>.</p>
+  <p><span data-i18n="intro1">These terms are the agreement between you and Elites AI Academy when you use elitesaiacademy.com and the student portal. By creating an account or using the site, you agree to them. Questions:</span> <a href="mailto:support@elitesaiacademy.com">support@elitesaiacademy.com</a></p>
 
-  <h2>The course</h2>
-  <p>Elites AI Academy teaches everyday AI skills in 72 short video lessons across 5 levels, in English and Dari. Lessons are for learning only. AI tools change often; we work to keep lessons current, but we cannot promise that every tool will look or work exactly as shown, or that the course will lead to a job, a raise, or any particular result.</p>
+  <h2 data-i18n="courseH">The course</h2>
+  <p data-i18n="course">Elites AI Academy teaches everyday AI skills in 72 short video lessons across 5 levels, in English and Dari. Lessons are for learning only. AI tools change often; we work to keep lessons current, but we cannot promise that every tool will look or work exactly as shown, or that the course will lead to a job, a raise, or any particular result.</p>
 
-  <h2>Your account</h2>
+  <h2 data-i18n="accountH">Your account</h2>
   <ul>
-    <li>One account is for one person. Please do not share your sign-in with others.</li>
-    <li>Keep your password to yourself. You are responsible for activity on your account.</li>
-    <li>Give a real name and email when you sign up, so we can reach you about your account.</li>
-    <li>You must be at least 18 years old, or have a parent or guardian's permission, to hold an account.</li>
+    <li data-i18n="a1">One account is for one person. Please do not share your sign-in with others.</li>
+    <li data-i18n="a2">Keep your password to yourself. You are responsible for activity on your account.</li>
+    <li data-i18n="a3">Give a real name and email when you sign up, so we can reach you about your account.</li>
+    <li data-i18n="a4">You must be at least 18 years old, or have a parent or guardian's permission, to hold an account.</li>
   </ul>
 
-  <h2>Membership and payment</h2>
+  <h2 data-i18n="payH">Membership and payment</h2>
   <ul>
-    <li>Membership is <strong>$19.99 per month</strong>, billed monthly, as shown on the site.</li>
-    <li>You can cancel anytime. When you cancel, you keep access until the end of the month you have paid for, and you are not charged again.</li>
-    <li>If the price ever changes, we will tell you before the new price reaches your card, and it will only apply from the following billing month.</li>
-    <li>If anything at checkout ever differs from this page, what you are shown at checkout is what governs that purchase.</li>
+    <li><span data-i18n="p1a">Membership is</span> <strong data-i18n="p1price">$19.99 per month</strong><span data-i18n="p1b">, billed monthly, as shown on the site.</span></li>
+    <li data-i18n="p2">You can cancel anytime. When you cancel, you keep access until the end of the month you have paid for, and you are not charged again.</li>
+    <li data-i18n="p3">If the price ever changes, we will tell you before the new price reaches your card, and it will only apply from the following billing month.</li>
+    <li data-i18n="p4">If anything at checkout ever differs from this page, what you are shown at checkout is what governs that purchase.</li>
   </ul>
 
-  <h2>Your student data</h2>
-  <p>Your name, email, and course progress are your private student record. We never sell, rent, or share student data with anyone, and we protect it to the same strict standard HIPAA sets for health records — encrypted, access-limited, and used only to run your account. The full details are in our <a href="privacy.html">Privacy Policy</a>, which is part of these terms.</p>
+  <h2 data-i18n="dataH">Your student data</h2>
+  <p><span data-i18n="d1">Your name, email, and course progress are your private student record. We never sell, rent, or share student data with anyone, and we protect it to the same strict standard HIPAA sets for health records — encrypted, access-limited, and used only to run your account. The full details are in our</span> <a href="privacy.html" data-i18n="dataLink">Privacy Policy</a><span data-i18n="d2">, which is part of these terms.</span></p>
 
-  <h2>The lessons belong to the Academy</h2>
-  <p>The videos, text, and materials in the course belong to Elites AI Academy. Your membership gives you personal access to watch and learn. You may not copy, record, resell, or share the lessons, or post them anywhere else.</p>
+  <h2 data-i18n="lessonsH">The lessons belong to the Academy</h2>
+  <p data-i18n="lessons">The videos, text, and materials in the course belong to Elites AI Academy. Your membership gives you personal access to watch and learn. You may not copy, record, resell, or share the lessons, or post them anywhere else.</p>
 
-  <h2>Fair use of the site</h2>
-  <p>Please do not try to break into the site, copy it in bulk, use it to send spam, or use it for anything unlawful. We may close accounts that break these rules, misuse the course, or share their sign-in.</p>
+  <h2 data-i18n="fairH">Fair use of the site</h2>
+  <p data-i18n="fair">Please do not try to break into the site, copy it in bulk, use it to send spam, or use it for anything unlawful. We may close accounts that break these rules, misuse the course, or share their sign-in.</p>
 
-  <h2>Availability</h2>
-  <p>We may add, change, or remove lessons as the course grows, and we work to keep the site running at all hours. We cannot promise the site will never be interrupted.</p>
+  <h2 data-i18n="availH">Availability</h2>
+  <p data-i18n="avail">We may add, change, or remove lessons as the course grows, and we work to keep the site running at all hours. We cannot promise the site will never be interrupted.</p>
 
-  <h2>Our responsibility</h2>
-  <p>To the extent the law allows, Elites AI Academy is not liable for indirect losses that come from using the site or the lessons. Nothing in these terms takes away rights the law gives you.</p>
+  <h2 data-i18n="liabH">Our responsibility</h2>
+  <p data-i18n="liab">To the extent the law allows, Elites AI Academy is not liable for indirect losses that come from using the site or the lessons. Nothing in these terms takes away rights the law gives you.</p>
 
-  <h2>Ending your account</h2>
-  <p>You can stop using the Academy anytime, and you can ask us to delete your account by emailing <a href="mailto:support@elitesaiacademy.com">support@elitesaiacademy.com</a>. Deleting your account ends your access and removes your saved progress.</p>
+  <h2 data-i18n="endingH">Ending your account</h2>
+  <p><span data-i18n="e1">You can stop using the Academy anytime, and you can ask us to delete your account by emailing</span> <a href="mailto:support@elitesaiacademy.com">support@elitesaiacademy.com</a><span data-i18n="e2">. Deleting your account ends your access and removes your saved progress.</span></p>
 
-  <h2>Changes to these terms</h2>
-  <p>If we change these terms, we will update this page and the date at the top. Using the site after a change means you accept the updated terms.</p>
+  <h2 data-i18n="changesH">Changes to these terms</h2>
+  <p data-i18n="changes">If we change these terms, we will update this page and the date at the top. Using the site after a change means you accept the updated terms.</p>
 
-  <h2>Contact</h2>
-  <p>Elites AI Academy<br>
+  <h2 data-i18n="contactH">Contact</h2>
+  <p><span data-i18n="contactName">Elites AI Academy</span><br>
   <a href="mailto:support@elitesaiacademy.com">support@elitesaiacademy.com</a></p>
 </main>
 
 <footer class="footer">
-  <div class="wrap">Need help? <a href="mailto:support@elitesaiacademy.com">support@elitesaiacademy.com</a><br>
-  <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></div>
+  <div class="wrap"><span data-i18n="help">Need help?</span> <a href="mailto:support@elitesaiacademy.com">support@elitesaiacademy.com</a><br>
+  <a href="privacy.html" data-i18n="privacy">Privacy</a> · <a href="terms.html" data-i18n="terms">Terms</a></div>
 </footer>
 
+<script>
+window.LEGAL_STRINGS = {
+  en: {
+    title: "Terms & Conditions — Elites AI Academy",
+    login: "Student Login",
+    h1: "Terms & Conditions",
+    updated: "Last updated: November 20, 2026",
+    intro1: "These terms are the agreement between you and Elites AI Academy when you use elitesaiacademy.com and the student portal. By creating an account or using the site, you agree to them. Questions:",
+    courseH: "The course",
+    course: "Elites AI Academy teaches everyday AI skills in 72 short video lessons across 5 levels, in English and Dari. Lessons are for learning only. AI tools change often; we work to keep lessons current, but we cannot promise that every tool will look or work exactly as shown, or that the course will lead to a job, a raise, or any particular result.",
+    accountH: "Your account",
+    a1: "One account is for one person. Please do not share your sign-in with others.",
+    a2: "Keep your password to yourself. You are responsible for activity on your account.",
+    a3: "Give a real name and email when you sign up, so we can reach you about your account.",
+    a4: "You must be at least 18 years old, or have a parent or guardian's permission, to hold an account.",
+    payH: "Membership and payment",
+    p1a: "Membership is",
+    p1price: "$19.99 per month",
+    p1b: ", billed monthly, as shown on the site.",
+    p2: "You can cancel anytime. When you cancel, you keep access until the end of the month you have paid for, and you are not charged again.",
+    p3: "If the price ever changes, we will tell you before the new price reaches your card, and it will only apply from the following billing month.",
+    p4: "If anything at checkout ever differs from this page, what you are shown at checkout is what governs that purchase.",
+    dataH: "Your student data",
+    d1: "Your name, email, and course progress are your private student record. We never sell, rent, or share student data with anyone, and we protect it to the same strict standard HIPAA sets for health records — encrypted, access-limited, and used only to run your account. The full details are in our",
+    dataLink: "Privacy Policy",
+    d2: ", which is part of these terms.",
+    lessonsH: "The lessons belong to the Academy",
+    lessons: "The videos, text, and materials in the course belong to Elites AI Academy. Your membership gives you personal access to watch and learn. You may not copy, record, resell, or share the lessons, or post them anywhere else.",
+    fairH: "Fair use of the site",
+    fair: "Please do not try to break into the site, copy it in bulk, use it to send spam, or use it for anything unlawful. We may close accounts that break these rules, misuse the course, or share their sign-in.",
+    availH: "Availability",
+    avail: "We may add, change, or remove lessons as the course grows, and we work to keep the site running at all hours. We cannot promise the site will never be interrupted.",
+    liabH: "Our responsibility",
+    liab: "To the extent the law allows, Elites AI Academy is not liable for indirect losses that come from using the site or the lessons. Nothing in these terms takes away rights the law gives you.",
+    endingH: "Ending your account",
+    e1: "You can stop using the Academy anytime, and you can ask us to delete your account by emailing",
+    e2: ". Deleting your account ends your access and removes your saved progress.",
+    changesH: "Changes to these terms",
+    changes: "If we change these terms, we will update this page and the date at the top. Using the site after a change means you accept the updated terms.",
+    contactH: "Contact",
+    contactName: "Elites AI Academy",
+    help: "Need help?",
+    privacy: "Privacy",
+    terms: "Terms"
+  },
+  fa: {
+    title: "شرایط استفاده — اکادمی هوش مصنوعی نخبگان",
+    login: "ورود شاگردان",
+    h1: "شرایط استفاده",
+    updated: "آخرین به‌روزرسانی: ۲۰ نوامبر ۲۰۲۶",
+    intro1: "این شرایط، توافق میان شما و اکادمی هوش مصنوعی نخبگان است وقتی از elitesaiacademy.com و پورتال شاگردان استفاده می‌کنید. با ساختن حساب یا استفاده از سایت، شما این شرایط را می‌پذیرید. سوال دارید؟",
+    courseH: "کورس",
+    course: "اکادمی هوش مصنوعی نخبگان مهارت‌های روزمرهٔ هوش مصنوعی را در ۷۲ درس ویدیویی کوتاه در ۵ سطح، به انگلیسی و دری، آموزش می‌دهد. درس‌ها فقط برای یادگیری‌اند. ابزارهای هوش مصنوعی زود تغییر می‌کنند؛ ما کوشش می‌کنیم درس‌ها را تازه نگه داریم، اما وعده داده نمی‌توانیم که هر ابزار دقیقاً همان‌طور دیده یا کار کند که نشان داده شده، یا این کورس به کار، افزایش معاش یا کدام نتیجهٔ خاصی برسد.",
+    accountH: "حساب شما",
+    a1: "یک حساب برای یک نفر است. لطفاً معلومات ورود خود را با دیگران شریک نسازید.",
+    a2: "رمز خود را نزد خودتان نگه دارید. شما مسئول فعالیت‌هایی هستید که در حساب‌تان می‌شود.",
+    a3: "وقتی ثبت‌نام می‌کنید، نام و ایمیل واقعی بدهید تا بتوانیم دربارهٔ حساب‌تان با شما تماس بگیریم.",
+    a4: "برای داشتن حساب باید حداقل ۱۸ ساله باشید، یا اجازهٔ والدین یا سرپرست را داشته باشید.",
+    payH: "عضویت و پرداخت",
+    p1a: "عضویت",
+    p1price: "19.99 دالر در ماه",
+    p1b: " است، ماهانه گرفته می‌شود، همان‌طور که در سایت نشان داده شده است.",
+    p2: "هر وقت خواستید لغو می‌توانید. وقتی لغو کنید، تا پایان ماهی که پولش را داده‌اید دسترسی‌تان می‌ماند و دیگر از شما پول گرفته نمی‌شود.",
+    p3: "اگر قیمت روزی تغییر کند، پیش از آن‌که قیمت جدید به کارت شما برسد، به شما خبر می‌دهیم و قیمت جدید فقط از ماه بعدی حساب می‌شود.",
+    p4: "اگر چیزی هنگام پرداخت با این صفحه فرق داشته باشد، آنچه هنگام پرداخت به شما نشان داده می‌شود، همان برای آن خرید معتبر است.",
+    dataH: "معلومات شاگردی شما",
+    d1: "نام، ایمیل و پیشرفت شما در کورس، سابقهٔ خصوصی شاگردی شماست. ما معلومات شاگردان را هرگز نمی‌فروشیم، کرایه نمی‌دهیم و با هیچ‌کس شریک نمی‌سازیم، و آن را به همان معیار سخت HIPAA برای سوابق صحی محافظت می‌کنیم — رمزگذاری‌شده، با دسترسی محدود، و فقط برای فعال نگه‌داشتن حساب شما. جزئیات کامل در",
+    dataLink: "پالیسی حریم خصوصی",
+    d2: " ماست که بخشی از همین شرایط است.",
+    lessonsH: "درس‌ها از اکادمی‌اند",
+    lessons: "ویدیوها، متن‌ها و مواد این کورس از اکادمی هوش مصنوعی نخبگان‌اند. عضویت شما به شما دسترسی شخصی می‌دهد تا ببینید و یاد بگیرید. شما نمی‌توانید درس‌ها را کاپی، ثبت، دوباره‌فروشی یا شریک کنید، یا آن‌ها را در جای دیگری بگذارید.",
+    fairH: "استفادهٔ درست از سایت",
+    fair: "لطفاً کوشش نکنید به سایت نفوذ کنید، آن را به صورت کلی کاپی کنید، برای فرستادن سپم استفاده کنید، یا برای کدام کار غیرقانونی به کار ببرید. ما می‌توانیم حساب‌هایی را ببندیم که این قاعده‌ها را بشکنند، از کورس سوءاستفاده کنند، یا معلومات ورود خود را شریک سازند.",
+    availH: "دسترسی به سایت",
+    avail: "با رشد کورس، می‌توانیم درس‌ها را اضافه، تغییر یا حذف کنیم و کوشش می‌کنیم سایت همیشه فعال باشد. وعده داده نمی‌توانیم که سایت هرگز قطع نشود.",
+    liabH: "مسئولیت ما",
+    liab: "تا جایی که قانون اجازه می‌دهد، اکادمی هوش مصنوعی نخبگان مسئول زیان‌های غیرمستقیمی نیست که از استفادهٔ سایت یا درس‌ها پیش آید. هیچ چیزی در این شرایط، حقوقی را که قانون به شما داده است، از شما نمی‌گیرد.",
+    endingH: "پایان دادن به حساب شما",
+    e1: "می‌توانید هر وقت خواستید استفاده از اکادمی را بس کنید و می‌توانید با ایمیل فرستادن به",
+    e2: " از ما بخواهید حساب‌تان را حذف کنیم. حذف حساب، دسترسی شما را پایان می‌دهد و پیشرفت ذخیره‌شدهٔ شما را پاک می‌کند.",
+    changesH: "تغییرات این شرایط",
+    changes: "اگر این شرایط را تغییر دهیم، این صفحه و تاریخ بالای آن را تازه می‌کنیم. استفاده از سایت بعد از تغییر، به این معناست که شرایط تازه را پذیرفته‌اید.",
+    contactH: "تماس",
+    contactName: "اکادمی هوش مصنوعی نخبگان",
+    help: "کمک می‌خواهید؟",
+    privacy: "حریم خصوصی",
+    terms: "شرایط استفاده"
+  }
+};
+</script>
+<script src="legal.js"></script>
 </body>
 </html>

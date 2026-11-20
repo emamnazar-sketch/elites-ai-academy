@@ -351,3 +351,5 @@ img { max-width: 100%; }
 .legal ul { padding-left: 22px; }
 .legal li { margin-bottom: 6px; }
 .legal-updated { color: var(--gray-text, #5a6672); margin-top: 0; }
+html[lang="fa"] .legal { text-align: right; }
+html[lang="fa"] .legal ul { padding-left: 0; padding-right: 22px; }
