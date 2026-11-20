@@ -1,6 +1,9 @@
-# Elites AI Academy — Student Portal (demo)
+# Elites AI Academy — Landing Page + Student Portal (demo)
 
-A simple, static student portal for Elites AI Academy, modeled on a classic
+`index.html` is a brief public landing page (English | دری toggle, level cards,
+join section) that links into the student portal at `portal.html`.
+
+The portal is a simple, static student portal modeled on a classic
 training-portal layout: login page, "My Training" dashboard with course cards,
 progress tabs, and a slide-in menu.
 

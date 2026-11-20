@@ -451,5 +451,5 @@ if (sessionStorage.getItem("eaa_in") === "1") {
   fillProfile();
   showApp("training");
 } else {
-  showAuth("login");
+  showAuth(location.hash === "#signup" ? "signup" : "login");
 }

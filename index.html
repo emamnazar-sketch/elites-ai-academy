@@ -1,201 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elites AI Academy — Student Login</title>
-<meta name="description" content="Elites AI Academy student portal. Log in to see your training, your progress, and your lessons.">
+<title>Elites AI Academy — Learn AI in Plain, Simple Words</title>
+<meta name="description" content="Step-by-step AI video lessons for everyday people, in English and Dari. No tech background needed.">
 <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="landing.css">
 </head>
 <body>
 
-<!-- ============ LOGIN VIEW ============ -->
-<main id="view-login" class="auth-wrap">
-  <img class="auth-logo" src="assets/logo.jpg" alt="Elites AI Academy">
-  <h1 class="auth-title">Student Login</h1>
-
-  <form id="login-form" class="auth-form" novalidate>
-    <label for="login-email">Email</label>
-    <input id="login-email" type="email" autocomplete="email" placeholder="you@example.com">
-
-    <label for="login-password">Password</label>
-    <div class="password-field">
-      <input id="login-password" type="password" autocomplete="current-password" placeholder="Your password">
-      <button type="button" class="eye-btn" data-eye="login-password" aria-label="Show or hide password">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-      </button>
-    </div>
-
-    <p id="login-error" class="form-error" hidden></p>
-    <button type="submit" class="btn-primary">Log In</button>
-    <p id="forgot-note" class="form-note" hidden>This is a demo site, so password reset is not turned on yet. For the demo, any password with 4 or more characters works.</p>
-    <button type="button" id="forgot-link" class="text-link">Forgot password</button>
-  </form>
-
-  <p class="auth-switch">New here? <button type="button" id="show-signup" class="text-link strong">Create your account</button></p>
-</main>
-
-<!-- ============ SIGN UP VIEW ============ -->
-<main id="view-signup" class="auth-wrap" hidden>
-  <img class="auth-logo" src="assets/logo.jpg" alt="Elites AI Academy">
-  <h1 class="auth-title">Create Your Account</h1>
-
-  <form id="signup-form" class="auth-form" novalidate>
-    <label for="signup-name">Your name</label>
-    <input id="signup-name" type="text" autocomplete="name" placeholder="Your full name">
-
-    <label for="signup-email">Email</label>
-    <input id="signup-email" type="email" autocomplete="email" placeholder="you@example.com">
-
-    <label for="signup-password">Password</label>
-    <div class="password-field">
-      <input id="signup-password" type="password" autocomplete="new-password" placeholder="At least 4 characters">
-      <button type="button" class="eye-btn" data-eye="signup-password" aria-label="Show or hide password">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
-      </button>
-    </div>
-
-    <p id="signup-error" class="form-error" hidden></p>
-    <button type="submit" class="btn-primary">Create Account</button>
-  </form>
-
-  <p class="auth-switch">Already have an account? <button type="button" id="show-login" class="text-link strong">Log in</button></p>
-</main>
-
-<!-- ============ APP (AFTER LOGIN) ============ -->
-<div id="view-app" hidden>
-  <header class="topbar">
+<!-- ============ TOP BAR ============ -->
+<header class="topbar">
+  <div class="wrap topbar-in">
     <img class="topbar-logo" src="assets/logo.jpg" alt="Elites AI Academy">
-    <button id="menu-btn" class="menu-btn" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-  </header>
-
-  <div id="menu-overlay" class="menu-overlay" hidden></div>
-  <nav id="side-menu" class="side-menu" aria-label="Main menu">
-    <div class="menu-head">
-      <span class="menu-account">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-5.5 8-5.5s6.5 1.5 8 5.5"/></svg>
-        My Account
+    <div class="topbar-actions">
+      <span class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" id="lang-en" class="active">English</button>
+        <button type="button" id="lang-fa">دری</button>
       </span>
-      <button id="menu-close" class="menu-close" aria-label="Close menu">&times;</button>
+      <a class="btn-login" href="portal.html" data-i18n="login">Student Login</a>
     </div>
-    <button class="menu-item" data-nav="training">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13v-9.5"/></svg>
-      My Training
-    </button>
-    <button class="menu-item" data-nav="progress">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></svg>
-      My Progress
-    </button>
-    <button class="menu-item" data-nav="profile">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-5.5 8-5.5s6.5 1.5 8 5.5"/></svg>
-      Profile
-    </button>
-    <button class="menu-item" data-nav="inbox">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-      Inbox <span class="badge-count">2</span>
-    </button>
-    <button class="menu-item" data-nav="help">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.3A2.6 2.6 0 0 1 12 7.5c1.4 0 2.5 1 2.5 2.2 0 1.7-2.4 2-2.4 3.5"/><circle cx="12" cy="17" r="0.5" fill="currentColor"/></svg>
-      Help &amp; Support
-    </button>
-    <button class="menu-item menu-logout" id="logout-btn">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>
-      Log Out
-    </button>
-  </nav>
+  </div>
+</header>
 
-  <main class="content">
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <img class="hero-logo" src="assets/logo.jpg" alt="Elites AI Academy">
+    <h1 data-i18n="headline">Learn AI in plain, simple words</h1>
+    <p class="hero-line"><span data-i18n="point1">Short video lessons, about 10 minutes each</span><span class="dot">·</span><span data-i18n="point2">Learn at your own pace, on your phone</span><span class="dot">·</span><span data-i18n="point3">Taught in English and Dari</span></p>
+    <a class="btn-gold" href="#join" data-i18n="start">Start Learning</a>
+  </div>
+</section>
 
-    <!-- ===== My Training ===== -->
-    <section id="page-training">
-      <h2 class="page-title">My Training</h2>
-      <p class="page-sub">Everyday AI Literacy: From First Chat to AI Agents</p>
-
-      <div class="filter-row">
-        <label>Show:
-          <select id="filter-show">
-            <option value="all">All</option>
-            <option value="1">Level 1</option>
-            <option value="2">Level 2</option>
-            <option value="3">Level 3</option>
-            <option value="4">Level 4</option>
-            <option value="5">Level 5</option>
-          </select>
-        </label>
-        <label>Sort:
-          <select id="filter-sort">
-            <option value="az">A to Z</option>
-            <option value="za">Z to A</option>
-            <option value="level">Level order</option>
-          </select>
-        </label>
+<!-- ============ LEVELS ============ -->
+<section class="wrap">
+  <div class="levels">
+    <article class="level-card">
+      <div class="level-thumb">
+        <span class="thumb-badge" data-i18n="l1badge">Level 1</span>
+        <span class="thumb-headline"><span class="thumb-line1" data-i18n="l1h1">START</span><span class="thumb-line2" data-i18n="l1h2">HERE</span></span>
       </div>
-
-      <div class="tabs" role="tablist">
-        <button class="tab" data-tab="not-started">Not Started (<span id="count-not-started">0</span>)</button>
-        <button class="tab" data-tab="in-progress">In Progress (<span id="count-in-progress">0</span>)</button>
-        <button class="tab" data-tab="completed">Completed (<span id="count-completed">0</span>)</button>
+      <div class="level-body">
+        <p class="level-title" data-i18n="l1title">Foundations &amp; Getting Started</p>
+        <p class="level-desc" data-i18n="l1desc">Begin your journey — what AI is and your first chat</p>
       </div>
+    </article>
 
-      <div id="cards" class="cards"></div>
-      <p id="cards-empty" class="empty-note" hidden>No courses here yet. Pick another tab above.</p>
-    </section>
-
-    <!-- ===== Course view ===== -->
-    <section id="page-course" hidden>
-      <button class="back-link" id="back-to-training">&larr; Back to My Training</button>
-      <div id="course-detail"></div>
-    </section>
-
-    <!-- ===== My Progress ===== -->
-    <section id="page-progress" hidden>
-      <h2 class="page-title">My Progress</h2>
-      <p class="page-sub">How far you have come in each level.</p>
-      <div id="progress-list"></div>
-    </section>
-
-    <!-- ===== Profile ===== -->
-    <section id="page-profile" hidden>
-      <h2 class="page-title">Profile</h2>
-      <div class="plain-card">
-        <p><strong>Name:</strong> <span id="profile-name">Student</span></p>
-        <p><strong>Email:</strong> <span id="profile-email">—</span></p>
-        <p class="small-note">This is a demo site. Your details are only kept on this device while you look around — nothing is saved on a server.</p>
+    <article class="level-card">
+      <div class="level-thumb">
+        <span class="thumb-badge" data-i18n="l2badge">Level 2</span>
+        <span class="thumb-headline"><span class="thumb-line1" data-i18n="l2h1">ASK IT</span><span class="thumb-line2" data-i18n="l2h2">RIGHT</span></span>
       </div>
-    </section>
-
-    <!-- ===== Inbox ===== -->
-    <section id="page-inbox" hidden>
-      <h2 class="page-title">Inbox</h2>
-      <div class="plain-card message">
-        <p class="message-title">Welcome to Elites AI Academy</p>
-        <p>Good to have you here. Start with Level 1, go at your own pace, and take one lesson at a time.</p>
+      <div class="level-body">
+        <p class="level-title" data-i18n="l2title">Effective Prompting &amp; Smart Communication</p>
+        <p class="level-desc" data-i18n="l2desc">Learn to ask so AI gives you answers you can use</p>
       </div>
-      <div class="plain-card message">
-        <p class="message-title">Level 2 is waiting for you</p>
-        <p>You are halfway through Level 2. Your next lesson is in Module 2.2, AI as a Thought Partner &amp; Interactive Tutor.</p>
+    </article>
+
+    <article class="level-card">
+      <div class="level-thumb">
+        <span class="thumb-badge" data-i18n="l3badge">Level 3</span>
+        <span class="thumb-headline"><span class="thumb-line1" data-i18n="l3h1">AI EVERY</span><span class="thumb-line2" data-i18n="l3h2">DAY</span></span>
       </div>
-    </section>
-
-    <!-- ===== Help ===== -->
-    <section id="page-help" hidden>
-      <h2 class="page-title">Help &amp; Support</h2>
-      <div class="plain-card">
-        <p>Stuck on a lesson, or something not working? Send us an email and we will get back to you.</p>
-        <p><a class="help-mail" href="mailto:support@elitesaiacademy.com">support@elitesaiacademy.com</a></p>
+      <div class="level-body">
+        <p class="level-title" data-i18n="l3title">Everyday Life &amp; Workplace Productivity</p>
+        <p class="level-desc" data-i18n="l3desc">Use AI for home, family, and work tasks</p>
       </div>
-    </section>
+    </article>
 
-    <footer class="help-block">
-      <h3>Need help?</h3>
-      <p><a href="mailto:support@elitesaiacademy.com">support@elitesaiacademy.com</a></p>
-    </footer>
-  </main>
-</div>
+    <article class="level-card">
+      <div class="level-thumb">
+        <span class="thumb-badge" data-i18n="l4badge">Level 4</span>
+        <span class="thumb-headline"><span class="thumb-line1" data-i18n="l4h1">STAY</span><span class="thumb-line2" data-i18n="l4h2">SAFE</span></span>
+      </div>
+      <div class="level-body">
+        <p class="level-title" data-i18n="l4title">AI Safety, Fact-Checking &amp; Scam Defense</p>
+        <p class="level-desc" data-i18n="l4desc">Spot fakes, scams, and wrong answers before they hurt you</p>
+      </div>
+    </article>
 
-<script src="app.js"></script>
+    <article class="level-card">
+      <div class="level-thumb">
+        <span class="thumb-badge" data-i18n="l5badge">Level 5</span>
+        <span class="thumb-headline"><span class="thumb-line1" data-i18n="l5h1">NEWEST</span><span class="thumb-line2" data-i18n="l5h2">TOOLS</span></span>
+      </div>
+      <div class="level-body">
+        <p class="level-title" data-i18n="l5title">Modern Frontier Tools, Multimedia &amp; Agents</p>
+        <p class="level-desc" data-i18n="l5desc">Pictures, voice, custom helpers, and AI agents</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ JOIN ============ -->
+<section class="join" id="join">
+  <div class="wrap">
+    <h2 data-i18n="joinHeading">Join Elites AI Academy</h2>
+    <p class="join-price" data-i18n="price">$19.99/month</p>
+    <p class="join-cancel" data-i18n="cancel">Cancel anytime</p>
+    <a class="btn-gold" href="portal.html#signup" data-i18n="create">Create Your Account</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap"><span data-i18n="help">Need help?</span> <a href="mailto:support@elitesaiacademy.com">support@elitesaiacademy.com</a></div>
+</footer>
+
+<script src="landing.js"></script>
 </body>
 </html>
