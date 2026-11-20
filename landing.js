@@ -3,12 +3,10 @@
 
 var STRINGS = {
   en: {
-    title: "Elites AI Academy — Learn AI in Plain, Simple Words",
+    title: "Elites AI Academy — From AI Chat to Mastery",
     login: "Student Login",
-    headline: "Learn AI in plain, simple words",
-    point1: "Short video lessons, about 10 minutes each",
-    point2: "Learn at your own pace, on your phone",
-    point3: "Taught in English and Dari",
+    headline: "From AI Chat to Mastery",
+    subline: "Step-by-step video lessons for everyday people. No tech background needed.",
     start: "Start Learning",
     l1badge: "Level 1", l1h1: "START", l1h2: "HERE",
     l1title: "Foundations & Getting Started",
@@ -34,10 +32,8 @@ var STRINGS = {
   fa: {
     title: "اکادمی هوش مصنوعی نخبگان — یادگیری به زبان ساده",
     login: "ورود شاگردان",
-    headline: "هوش مصنوعی را به زبان ساده یاد بگیرید",
-    point1: "درس‌های کوتاه ویدیویی، هر درس حدود ۱۰ دقیقه",
-    point2: "با سرعت خودتان، در تلیفون‌تان یاد بگیرید",
-    point3: "به زبان انگلیسی و دری",
+    headline: "از گفت‌وگو با هوش مصنوعی تا استادی",
+    subline: "درس‌های ویدیویی قدم به قدم برای مردم عادی. هیچ دانش فنی لازم نیست.",
     start: "شروع یادگیری",
     l1badge: "سطح ۱", l1h1: "از اینجا", l1h2: "شروع کنید",
     l1title: "اساس‌ها و شروع کار",

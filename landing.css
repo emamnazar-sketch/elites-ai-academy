@@ -40,6 +40,7 @@ img { max-width: 100%; }
 }
 
 .topbar-in {
+  direction: ltr; /* bar layout stays: logo left, login top-right, in both languages */
   display: flex;
   align-items: center;
   gap: 14px;
