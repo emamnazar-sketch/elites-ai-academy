@@ -5,5 +5,5 @@ export async function onRequestGet(context) {
   const { request, env } = context;
   const user = await getSessionUser(env, request);
   if (!user) return json({ error: "Not signed in." }, 401);
-  return json({ ok: true, email: user.email });
+  return json({ ok: true, email: user.email, name: user.name || "" });
 }

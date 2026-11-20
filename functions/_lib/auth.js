@@ -84,7 +84,7 @@ export async function getSessionUser(env, request) {
   if (!token) return null;
   const tokenHash = await sha256Hex(token);
   const row = await env.DB.prepare(
-    "SELECT u.id AS id, u.email AS email FROM sessions s JOIN users u ON u.id = s.user_id WHERE s.token = ? AND s.expires_at > datetime('now')"
+    "SELECT u.id AS id, u.email AS email, u.name AS name FROM sessions s JOIN users u ON u.id = s.user_id WHERE s.token = ? AND s.expires_at > datetime('now')"
   )
     .bind(tokenHash)
     .first();

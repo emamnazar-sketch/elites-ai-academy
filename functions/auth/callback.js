@@ -42,17 +42,22 @@ export async function onRequestGet(context) {
   if (!info.sub || !info.email) return backToLogin("Google did not share an email. Please try again.");
 
   const email = String(info.email).toLowerCase();
-  let user = await env.DB.prepare("SELECT id FROM users WHERE google_sub = ?").bind(info.sub).first();
+  const googleName = String(info.name || "").trim().slice(0, 80);
+  let user = await env.DB.prepare("SELECT id, name FROM users WHERE google_sub = ?").bind(info.sub).first();
   if (!user) {
-    user = await env.DB.prepare("SELECT id FROM users WHERE email = ?").bind(email).first();
+    user = await env.DB.prepare("SELECT id, name FROM users WHERE email = ?").bind(email).first();
     if (user) {
       await env.DB.prepare("UPDATE users SET google_sub = ? WHERE id = ?").bind(info.sub, user.id).run();
     } else {
-      const inserted = await env.DB.prepare("INSERT INTO users (email, google_sub) VALUES (?, ?) RETURNING id")
-        .bind(email, info.sub)
+      const inserted = await env.DB.prepare("INSERT INTO users (email, google_sub, name) VALUES (?, ?, ?) RETURNING id")
+        .bind(email, info.sub, googleName || null)
         .first();
       user = inserted;
     }
+  }
+  // Fill in the name from Google if the account does not have one yet.
+  if (user && !user.name && googleName) {
+    await env.DB.prepare("UPDATE users SET name = ? WHERE id = ?").bind(googleName, user.id).run();
   }
 
   const cookie = await createSessionCookie(env, user.id);

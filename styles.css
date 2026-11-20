@@ -584,3 +584,26 @@ img { max-width: 100%; }
   #page-inbox,
   #page-help { max-width: 880px; }
 }
+
+/* Profile name editor */
+.profile-edit { margin-top: 18px; text-align: left; }
+.profile-edit label {
+  display: block;
+  font-size: 18px;
+  color: var(--gray-text);
+  margin: 0 0 6px;
+}
+.profile-edit input {
+  width: 100%;
+  padding: 14px 12px;
+  font-size: 19px;
+  border: 1.5px solid #9aa4ad;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.profile-edit input:focus {
+  outline: 3px solid rgba(201, 162, 39, 0.45);
+  border-color: var(--navy);
+}

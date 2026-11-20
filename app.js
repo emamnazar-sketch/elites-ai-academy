@@ -204,6 +204,7 @@ function showPage(page) {
 /* ---------- login / signup (real accounts) ---------- */
 
 var currentEmail = null;
+var currentName = "";
 
 function validEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -259,8 +260,9 @@ function loadProgress() {
   }).catch(function () { /* progress never blocks sign-in */ });
 }
 
-function enterApp(email) {
+function enterApp(email, name) {
   currentEmail = email;
+  currentName = name || "";
   fillProfile();
   loadProgress().then(function () {
     renderCounts();
@@ -271,7 +273,9 @@ function enterApp(email) {
 }
 
 function fillProfile() {
+  $("profile-name").textContent = currentName || "—";
   $("profile-email").textContent = currentEmail || "—";
+  $("profile-name-input").value = currentName || "";
 }
 
 $("login-form").addEventListener("submit", function (e) {
@@ -290,7 +294,7 @@ $("login-form").addEventListener("submit", function (e) {
       err.hidden = false;
       return;
     }
-    enterApp(r.data.email);
+    enterApp(r.data.email, r.data.name);
   }).catch(function () {
     err.textContent = "We could not reach the sign-in service. Please try again.";
     err.hidden = false;
@@ -299,11 +303,12 @@ $("login-form").addEventListener("submit", function (e) {
 
 $("signup-form").addEventListener("submit", function (e) {
   e.preventDefault();
+  var name = $("signup-name").value.trim();
   var email = $("signup-email").value.trim();
   var pw = $("signup-password").value;
   var err = $("signup-error");
-  if (!validEmail(email) || pw.length < 8) {
-    err.textContent = "Please enter a real email and a password of at least 8 characters.";
+  if (!name || !validEmail(email) || pw.length < 8) {
+    err.textContent = "Please enter your name, a real email, and a password of at least 8 characters.";
     err.hidden = false;
     return;
   }
@@ -311,16 +316,46 @@ $("signup-form").addEventListener("submit", function (e) {
   api("/auth/signup", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email: email, password: pw })
+    body: JSON.stringify({ name: name, email: email, password: pw })
   }).then(function (r) {
     if (!r.ok) {
       err.textContent = r.data.error || "Something went wrong. Please try again.";
       err.hidden = false;
       return;
     }
-    enterApp(r.data.email);
+    enterApp(r.data.email, r.data.name);
   }).catch(function () {
     err.textContent = "We could not reach the sign-up service. Please try again.";
+    err.hidden = false;
+  });
+});
+
+$("profile-name-save").addEventListener("click", function () {
+  var name = $("profile-name-input").value.trim();
+  var err = $("profile-error");
+  var saved = $("profile-saved");
+  err.hidden = true;
+  saved.hidden = true;
+  if (!name) {
+    err.textContent = "Please enter your name.";
+    err.hidden = false;
+    return;
+  }
+  api("/auth/profile", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name: name })
+  }).then(function (r) {
+    if (!r.ok) {
+      err.textContent = r.data.error || "Something went wrong. Please try again.";
+      err.hidden = false;
+      return;
+    }
+    currentName = r.data.name;
+    fillProfile();
+    saved.hidden = false;
+  }).catch(function () {
+    err.textContent = "We could not save your name. Please try again.";
     err.hidden = false;
   });
 });
@@ -343,6 +378,7 @@ document.querySelectorAll(".eye-btn").forEach(function (btn) {
 $("logout-btn").addEventListener("click", function () {
   api("/auth/logout", { method: "POST" }).catch(function () {}).then(function () {
     currentEmail = null;
+    currentName = "";
     closeMenu();
     showAuth("login");
   });
@@ -535,7 +571,7 @@ if (authError) {
 } else {
   api("/auth/me").then(function (r) {
     if (r.ok && r.data.email) {
-      enterApp(r.data.email);
+      enterApp(r.data.email, r.data.name);
     } else {
       showAuth(location.hash === "#signup" ? "signup" : "login");
     }

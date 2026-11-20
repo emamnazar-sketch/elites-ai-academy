@@ -5,8 +5,10 @@ export async function onRequestPost(context) {
   const { request, env } = context;
   let body;
   try { body = await request.json(); } catch { return json({ error: "Bad request." }, 400); }
+  const name = String(body.name || "").trim().slice(0, 80);
   const email = String(body.email || "").trim().toLowerCase();
   const password = String(body.password || "");
+  if (!name) return json({ error: "Please enter your name." }, 400);
   if (!validEmail(email)) return json({ error: "Please enter a real email address." }, 400);
   if (password.length < 8) return json({ error: "Your password needs at least 8 characters." }, 400);
 
@@ -15,14 +17,14 @@ export async function onRequestPost(context) {
   const passwordHash = await hashPassword(password);
   let userId;
   if (existing) {
-    await env.DB.prepare("UPDATE users SET password_hash = ? WHERE id = ?").bind(passwordHash, existing.id).run();
+    await env.DB.prepare("UPDATE users SET password_hash = ?, name = ? WHERE id = ?").bind(passwordHash, name, existing.id).run();
     userId = existing.id;
   } else {
-    const inserted = await env.DB.prepare("INSERT INTO users (email, password_hash) VALUES (?, ?) RETURNING id")
-      .bind(email, passwordHash)
+    const inserted = await env.DB.prepare("INSERT INTO users (email, password_hash, name) VALUES (?, ?, ?) RETURNING id")
+      .bind(email, passwordHash, name)
       .first();
     userId = inserted.id;
   }
   const cookie = await createSessionCookie(env, userId);
-  return json({ ok: true, email }, 200, { "Set-Cookie": cookie });
+  return json({ ok: true, email, name }, 200, { "Set-Cookie": cookie });
 }

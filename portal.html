@@ -6,7 +6,7 @@
 <title>Elites AI Academy — Student Login</title>
 <meta name="description" content="Elites AI Academy student portal. Log in to see your training, your progress, and your lessons.">
 <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
-<link rel="stylesheet" href="styles.css?v=2">
+<link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 
@@ -55,6 +55,9 @@
     </button>
 
     <div class="auth-divider"><span>or</span></div>
+
+    <label for="signup-name">Your name</label>
+    <input id="signup-name" type="text" autocomplete="name" placeholder="Your full name">
 
     <label for="signup-email">Email</label>
     <input id="signup-email" type="email" autocomplete="email" placeholder="you@example.com">
@@ -172,7 +175,15 @@
     <section id="page-profile" hidden>
       <h2 class="page-title">Profile</h2>
       <div class="plain-card">
+        <p><strong>Name:</strong> <span id="profile-name">—</span></p>
         <p><strong>Email:</strong> <span id="profile-email">—</span></p>
+        <div class="profile-edit">
+          <label for="profile-name-input">Your name</label>
+          <input id="profile-name-input" type="text" autocomplete="name" placeholder="Your full name">
+          <button type="button" id="profile-name-save" class="btn-primary">Save Name</button>
+          <p id="profile-saved" class="form-note" hidden>Saved.</p>
+          <p id="profile-error" class="form-error" hidden></p>
+        </div>
         <p class="small-note">Your account and your progress are saved securely. Sign in on any device and pick up right where you left off.</p>
       </div>
     </section>
@@ -206,6 +217,6 @@
   </main>
 </div>
 
-<script src="app.js?v=3"></script>
+<script src="app.js?v=4"></script>
 </body>
 </html>
