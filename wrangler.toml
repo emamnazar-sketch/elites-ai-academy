@@ -2,6 +2,12 @@ name = "elites-ai-academy"
 pages_build_output_dir = "."
 compatibility_date = "2026-11-01"
 
+# The Google Client ID is public by design (it appears in every sign-in URL),
+# so it lives here. The client secret and session secret stay in the
+# Cloudflare dashboard as encrypted secrets — never in this file.
+[vars]
+GOOGLE_CLIENT_ID = "276415008113-kfo4c31itm607vit6bop7vcfv0pgid2v.apps.googleusercontent.com"
+
 [[d1_databases]]
 binding = "DB"
 database_name = "elites-ai-academy-db"
