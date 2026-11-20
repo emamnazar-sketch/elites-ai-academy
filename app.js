@@ -206,18 +206,15 @@ function validEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-function startSession(name, email) {
+function startSession(email) {
   sessionStorage.setItem("eaa_in", "1");
   sessionStorage.setItem("eaa_email", email);
-  if (name) sessionStorage.setItem("eaa_name", name);
   fillProfile();
   showApp("training");
 }
 
 function fillProfile() {
-  var name = sessionStorage.getItem("eaa_name");
   var email = sessionStorage.getItem("eaa_email");
-  $("profile-name").textContent = name || "Student";
   $("profile-email").textContent = email || "—";
 }
 
@@ -232,23 +229,25 @@ $("login-form").addEventListener("submit", function (e) {
     return;
   }
   err.hidden = true;
-  startSession(null, email);
+  startSession(email);
 });
 
 $("signup-form").addEventListener("submit", function (e) {
   e.preventDefault();
-  var name = $("signup-name").value.trim();
   var email = $("signup-email").value.trim();
   var pw = $("signup-password").value;
   var err = $("signup-error");
-  if (!name || !validEmail(email) || pw.length < 4) {
-    err.textContent = "Please fill in your name, a real email, and a password of at least 4 characters.";
+  if (!validEmail(email) || pw.length < 4) {
+    err.textContent = "Please enter a real email and a password of at least 4 characters.";
     err.hidden = false;
     return;
   }
   err.hidden = true;
-  startSession(name, email);
+  startSession(email);
 });
+
+$("google-login").addEventListener("click", function () { $("google-note").hidden = false; });
+$("google-signup").addEventListener("click", function () { $("google-note-signup").hidden = false; });
 
 $("show-signup").addEventListener("click", function () { showAuth("signup"); });
 $("show-login").addEventListener("click", function () { showAuth("login"); });
@@ -265,7 +264,6 @@ document.querySelectorAll(".eye-btn").forEach(function (btn) {
 $("logout-btn").addEventListener("click", function () {
   sessionStorage.removeItem("eaa_in");
   sessionStorage.removeItem("eaa_email");
-  sessionStorage.removeItem("eaa_name");
   closeMenu();
   showAuth("login");
 });

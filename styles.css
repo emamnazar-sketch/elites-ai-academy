@@ -116,6 +116,41 @@ img { max-width: 100%; }
 
 .btn-primary:hover { background: var(--gold-dark); color: #fff; }
 
+.btn-google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 56px;
+  padding: 14px 16px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink);
+  background: #fff;
+  border: 1.5px solid #9aa4ad;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-google:hover { border-color: var(--navy); }
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 22px 0 2px;
+  color: var(--gray-text);
+  font-size: 17px;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  border-top: 1.5px solid #c8cfd6;
+}
+
 .form-error {
   margin: 16px 0 0;
   padding: 12px 14px;
