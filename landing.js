@@ -1,4 +1,4 @@
-/* Elites AI Academy — landing page language toggle.
+/* Elites AI Academy — landing page: language toggle + sticky CTA.
    English | دری — switches the whole page, RTL in Dari mode. */
 
 var STRINGS = {
@@ -6,55 +6,83 @@ var STRINGS = {
     title: "Elites AI Academy — From AI Chat to Mastery",
     login: "Student Login",
     headline: "From AI Chat to Mastery",
-    subline: "Step-by-step video lessons for everyday people. No tech background needed.",
-    start: "Start Learning",
-    l1badge: "Level 1", l1h1: "START", l1h2: "HERE",
-    l1title: "Foundations & Getting Started",
-    l1desc: "Begin your journey — what AI is and your first chat",
-    l2badge: "Level 2", l2h1: "ASK IT", l2h2: "RIGHT",
-    l2title: "Effective Prompting & Smart Communication",
-    l2desc: "Learn to ask so AI gives you answers you can use",
-    l3badge: "Level 3", l3h1: "AI EVERY", l3h2: "DAY",
-    l3title: "Everyday Life & Workplace Productivity",
-    l3desc: "Use AI for home, family, and work tasks",
-    l4badge: "Level 4", l4h1: "STAY", l4h2: "SAFE",
-    l4title: "AI Safety, Fact-Checking & Scam Defense",
-    l4desc: "Spot fakes, scams, and wrong answers before they hurt you",
-    l5badge: "Level 5", l5h1: "NEWEST", l5h2: "TOOLS",
-    l5title: "Modern Frontier Tools, Multimedia & Agents",
-    l5desc: "Pictures, voice, custom helpers, and AI agents",
+    subhead: "72 short video lessons for complete beginners — no tech skills needed, in English and Dari.",
+    cta: "Start Learning Today",
+    heroProof: "5 levels · Watch on any phone · Cancel anytime",
+    visualAlt: "Elites AI Academy course cards",
+    proofStrip: "72 lessons · 5 levels · English + Dari · Made for beginners",
+    pathHeading: "Your path: 5 levels",
+    l1badge: "Level 1", l1title: "Foundations & Getting Started",
+    l2badge: "Level 2", l2title: "Effective Prompting & Smart Communication",
+    l3badge: "Level 3", l3title: "Everyday Life & Workplace Productivity",
+    l4badge: "Level 4", l4title: "AI Safety, Fact-Checking & Scam Defense",
+    l5badge: "Level 5", l5title: "Modern Frontier Tools, Multimedia & Agents",
+    count12: "12 lessons",
+    count18: "18 lessons",
+    how1: "Watch on your phone",
+    how2: "English or Dari",
+    how3: "Learn at your own pace",
     joinHeading: "Join Elites AI Academy",
     price: "$19.99/month",
-    cancel: "Cancel anytime",
-    create: "Create Your Account",
-    help: "Need help?"
+    inc1: "All 72 lessons",
+    inc2: "Both languages — English and Dari",
+    inc3: "New lessons as they come",
+    inc4: "Watch on phone, tablet, and computer",
+    secureLine: "Cancel anytime · Secure payment",
+    faqHeading: "Common questions",
+    q1: "Do I need experience?",
+    a1: "No — the course starts from zero.",
+    q2: "Is it in Dari?",
+    a2: "Yes — every lesson is in English and Dari.",
+    q3: "How long are the lessons?",
+    a3: "About 10 minutes each.",
+    q4: "Can I cancel anytime?",
+    a4: "Yes — cancel in a few taps, and you keep access until the end of the month.",
+    finalPrice: "$19.99/month · Cancel anytime",
+    help: "Need help?",
+    privacy: "Privacy",
+    terms: "Terms"
   },
   fa: {
-    title: "اکادمی هوش مصنوعی نخبگان — یادگیری به زبان ساده",
+    title: "اکادمی هوش مصنوعی نخبگان — از گفت‌وگو تا استادی",
     login: "ورود شاگردان",
     headline: "از گفت‌وگو با هوش مصنوعی تا استادی",
-    subline: "درس‌های ویدیویی قدم به قدم برای مردم عادی. هیچ دانش فنی لازم نیست.",
-    start: "شروع یادگیری",
-    l1badge: "سطح ۱", l1h1: "از اینجا", l1h2: "شروع کنید",
-    l1title: "اساس‌ها و شروع کار",
-    l1desc: "سفر خود را شروع کنید — هوش مصنوعی چیست و اولین گفتگوی شما",
-    l2badge: "سطح ۲", l2h1: "درست", l2h2: "بپرسید",
-    l2title: "پرسیدن درست و ارتباط هوشمند",
-    l2desc: "یاد بگیرید چطور بپرسید تا جواب‌های مفید بگیرید",
-    l3badge: "سطح ۳", l3h1: "هوش مصنوعی", l3h2: "هر روز",
-    l3title: "زندگی روزمره و کار",
-    l3desc: "از هوش مصنوعی برای کارهای خانه، خانواده و کار استفاده کنید",
-    l4badge: "سطح ۴", l4h1: "امن", l4h2: "بمانید",
-    l4title: "امنیت و محافظت در برابر کلاهبرداری",
-    l4desc: "جعلی‌ها، کلاهبرداری‌ها و جواب‌های غلط را پیش از آسیب بشناسید",
-    l5badge: "سطح ۵", l5h1: "ابزارهای", l5h2: "جدید",
-    l5title: "ابزارهای جدید و دستیارهای هوشمند",
-    l5desc: "عکس‌ها، صدا، دستیارهای شخصی و نماینده‌های هوش مصنوعی",
+    subhead: "۷۲ درس ویدیویی کوتاه برای مبتدی‌ها — بدون نیاز به مهارت فنی، به انگلیسی و دری.",
+    cta: "همین امروز شروع کنید",
+    heroProof: "۵ سطح · در هر تلیفون ببینید · هر وقت خواستید لغو کنید",
+    visualAlt: "کارت‌های کورس اکادمی هوش مصنوعی نخبگان",
+    proofStrip: "۷۲ درس · ۵ سطح · انگلیسی + دری · برای مبتدی‌ها",
+    pathHeading: "مسیر شما: ۵ سطح",
+    l1badge: "سطح ۱", l1title: "اساس‌ها و شروع کار",
+    l2badge: "سطح ۲", l2title: "پرسیدن درست و ارتباط هوشمند",
+    l3badge: "سطح ۳", l3title: "زندگی روزمره و کار",
+    l4badge: "سطح ۴", l4title: "امنیت و محافظت در برابر کلاهبرداری",
+    l5badge: "سطح ۵", l5title: "ابزارهای جدید و دستیارهای هوشمند",
+    count12: "۱۲ درس",
+    count18: "۱۸ درس",
+    how1: "در تلیفون‌تان ببینید",
+    how2: "انگلیسی یا دری",
+    how3: "با سرعت خودتان یاد بگیرید",
     joinHeading: "به اکادمی هوش مصنوعی نخبگان بپیوندید",
     price: "19.99 دالر در ماه",
-    cancel: "هر وقت خواستید لغو کنید",
-    create: "حساب خود را بسازید",
-    help: "کمک می‌خواهید؟"
+    inc1: "هر ۷۲ درس",
+    inc2: "به هر دو زبان — انگلیسی و دری",
+    inc3: "درس‌های جدید، وقتی آماده شوند",
+    inc4: "در تلیفون، تابلت و کمپیوتر ببینید",
+    secureLine: "هر وقت خواستید لغو کنید · پرداخت امن",
+    faqHeading: "سوال‌های معمول",
+    q1: "آیا به تجربه نیاز دارم؟",
+    a1: "نه — کورس از صفر شروع می‌شود.",
+    q2: "آیا به دری هم است؟",
+    a2: "بله — هر درس به انگلیسی و دری است.",
+    q3: "هر درس چقدر وقت می‌گیرد؟",
+    a3: "هر درس حدود ۱۰ دقیقه است.",
+    q4: "آیا هر وقت خواستم لغو می‌توانم؟",
+    a4: "بله — با چند لمس لغو کنید و تا پایان ماه دسترسی‌تان باقی می‌ماند.",
+    finalPrice: "19.99 دالر در ماه · هر وقت خواستید لغو کنید",
+    help: "کمک می‌خواهید؟",
+    privacy: "حریم خصوصی",
+    terms: "شرایط استفاده"
   }
 };
 
@@ -68,6 +96,8 @@ function setLang(lang) {
     var key = el.getAttribute("data-i18n");
     if (dict[key]) el.textContent = dict[key];
   });
+  var visual = document.getElementById("hero-visual");
+  if (visual) visual.alt = dict.visualAlt;
   document.getElementById("lang-en").classList.toggle("active", lang === "en");
   document.getElementById("lang-fa").classList.toggle("active", lang === "fa");
   try { localStorage.setItem("eaa_lang", lang); } catch (e) {}
@@ -79,3 +109,11 @@ document.getElementById("lang-fa").addEventListener("click", function () { setLa
 var saved = "en";
 try { saved = localStorage.getItem("eaa_lang") || "en"; } catch (e) {}
 if (saved === "fa") setLang("fa");
+
+/* Sticky bottom CTA on phones: appears after the hero */
+var sticky = document.getElementById("sticky-cta");
+function onScroll() {
+  if (sticky) sticky.classList.toggle("show", window.scrollY > 430);
+}
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
