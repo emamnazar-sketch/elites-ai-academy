@@ -1,5 +1,6 @@
-/* Elites AI Academy — student portal demo.
-   Front-end only: no real accounts, nothing leaves this device. */
+/* Elites AI Academy — student portal.
+   Real accounts: sign-in, sessions, and progress are handled by the
+   /auth endpoints (Cloudflare Pages Functions + D1 database). */
 
 var LEVELS = [
   {
@@ -200,22 +201,77 @@ function showPage(page) {
   window.scrollTo(0, 0);
 }
 
-/* ---------- login / signup ---------- */
+/* ---------- login / signup (real accounts) ---------- */
+
+var currentEmail = null;
 
 function validEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-function startSession(email) {
-  sessionStorage.setItem("eaa_in", "1");
-  sessionStorage.setItem("eaa_email", email);
+function api(path, options) {
+  options = options || {};
+  options.credentials = "same-origin";
+  return fetch(path, options).then(function (res) {
+    return res.json().catch(function () { return {}; }).then(function (data) {
+      return { ok: res.ok, status: res.status, data: data };
+    });
+  });
+}
+
+function statusFor(level) {
+  var total = lessonTotal(level);
+  if (level.done >= total) return "completed";
+  if (level.done > 0) return "in-progress";
+  return "not-started";
+}
+
+function progressSnapshot() {
+  var done = {};
+  LEVELS.forEach(function (l) { done[l.n] = l.done; });
+  return { done: done };
+}
+
+function applyProgress(data) {
+  if (!data || !data.done) return;
+  LEVELS.forEach(function (l) {
+    if (typeof data.done[l.n] === "number") {
+      l.done = Math.max(0, Math.min(lessonTotal(l), data.done[l.n]));
+      l.status = statusFor(l);
+    }
+  });
+}
+
+function loadProgress() {
+  return api("/auth/progress").then(function (r) {
+    if (!r.ok) return;
+    if (r.data.data) {
+      applyProgress(r.data.data);
+    } else {
+      // First sign-in for this account: save the starting progress
+      // so it follows the student from here on.
+      return api("/auth/progress", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(progressSnapshot())
+      });
+    }
+  }).catch(function () { /* progress never blocks sign-in */ });
+}
+
+function enterApp(email) {
+  currentEmail = email;
   fillProfile();
-  showApp("training");
+  loadProgress().then(function () {
+    renderCounts();
+    renderCards();
+    renderProgress();
+    showApp("training");
+  });
 }
 
 function fillProfile() {
-  var email = sessionStorage.getItem("eaa_email");
-  $("profile-email").textContent = email || "—";
+  $("profile-email").textContent = currentEmail || "—";
 }
 
 $("login-form").addEventListener("submit", function (e) {
@@ -223,13 +279,22 @@ $("login-form").addEventListener("submit", function (e) {
   var email = $("login-email").value.trim();
   var pw = $("login-password").value;
   var err = $("login-error");
-  if (!validEmail(email) || pw.length < 4) {
-    err.textContent = "Please check your email and password. The password needs at least 4 characters.";
-    err.hidden = false;
-    return;
-  }
   err.hidden = true;
-  startSession(email);
+  api("/auth/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email: email, password: pw })
+  }).then(function (r) {
+    if (!r.ok) {
+      err.textContent = r.data.error || "Something went wrong. Please try again.";
+      err.hidden = false;
+      return;
+    }
+    enterApp(r.data.email);
+  }).catch(function () {
+    err.textContent = "We could not reach the sign-in service. Please try again.";
+    err.hidden = false;
+  });
 });
 
 $("signup-form").addEventListener("submit", function (e) {
@@ -237,17 +302,31 @@ $("signup-form").addEventListener("submit", function (e) {
   var email = $("signup-email").value.trim();
   var pw = $("signup-password").value;
   var err = $("signup-error");
-  if (!validEmail(email) || pw.length < 4) {
-    err.textContent = "Please enter a real email and a password of at least 4 characters.";
+  if (!validEmail(email) || pw.length < 8) {
+    err.textContent = "Please enter a real email and a password of at least 8 characters.";
     err.hidden = false;
     return;
   }
   err.hidden = true;
-  startSession(email);
+  api("/auth/signup", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email: email, password: pw })
+  }).then(function (r) {
+    if (!r.ok) {
+      err.textContent = r.data.error || "Something went wrong. Please try again.";
+      err.hidden = false;
+      return;
+    }
+    enterApp(r.data.email);
+  }).catch(function () {
+    err.textContent = "We could not reach the sign-up service. Please try again.";
+    err.hidden = false;
+  });
 });
 
-$("google-login").addEventListener("click", function () { $("google-note").hidden = false; });
-$("google-signup").addEventListener("click", function () { $("google-note-signup").hidden = false; });
+$("google-login").addEventListener("click", function () { window.location.href = "/auth/google"; });
+$("google-signup").addEventListener("click", function () { window.location.href = "/auth/google"; });
 
 $("show-signup").addEventListener("click", function () { showAuth("signup"); });
 $("show-login").addEventListener("click", function () { showAuth("login"); });
@@ -262,10 +341,11 @@ document.querySelectorAll(".eye-btn").forEach(function (btn) {
 });
 
 $("logout-btn").addEventListener("click", function () {
-  sessionStorage.removeItem("eaa_in");
-  sessionStorage.removeItem("eaa_email");
-  closeMenu();
-  showAuth("login");
+  api("/auth/logout", { method: "POST" }).catch(function () {}).then(function () {
+    currentEmail = null;
+    closeMenu();
+    showAuth("login");
+  });
 });
 
 /* ---------- menu ---------- */
@@ -445,9 +525,21 @@ renderCounts();
 renderCards();
 renderProgress();
 
-if (sessionStorage.getItem("eaa_in") === "1") {
-  fillProfile();
-  showApp("training");
+var authError = new URLSearchParams(location.search).get("error");
+if (authError) {
+  history.replaceState(null, "", location.pathname + location.hash);
+  var loginErr = $("login-error");
+  loginErr.textContent = authError;
+  loginErr.hidden = false;
+  showAuth("login");
 } else {
-  showAuth(location.hash === "#signup" ? "signup" : "login");
+  api("/auth/me").then(function (r) {
+    if (r.ok && r.data.email) {
+      enterApp(r.data.email);
+    } else {
+      showAuth(location.hash === "#signup" ? "signup" : "login");
+    }
+  }).catch(function () {
+    showAuth("login");
+  });
 }

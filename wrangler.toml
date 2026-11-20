@@ -1,0 +1,8 @@
+name = "elites-ai-academy"
+pages_build_output_dir = "."
+compatibility_date = "2026-11-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "elites-ai-academy-db"
+database_id = "374b3ac6-974d-4c34-9726-09cbc3b6374f"

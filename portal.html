@@ -20,7 +20,7 @@
       <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.3c0-.9-.1-1.5-.3-2.2H12v4.3h6.5c-.1 1.1-.8 2.7-2.4 3.8l3.7 2.9c2.3-2.1 3.7-5.2 3.7-8.8z"/><path fill="#34A853" d="M12 24c3.2 0 5.9-1.1 7.9-2.9l-3.7-2.9c-1 .7-2.4 1.2-4.2 1.2-3.2 0-5.9-2.1-6.8-5l-3.9 3C3.3 21.3 7.3 24 12 24z"/><path fill="#FBBC05" d="M5.2 14.4c-.2-.7-.4-1.5-.4-2.4s.1-1.7.4-2.4l-3.9-3C.5 8.2 0 10 0 12s.5 3.8 1.3 5.4l3.9-3z"/><path fill="#EA4335" d="M12 4.7c1.8 0 3 .8 3.7 1.4l3.3-3.2C17.9 1.1 15.2 0 12 0 7.3 0 3.3 2.7 1.3 6.6l3.9 3c.9-2.8 3.6-4.9 6.8-4.9z"/></svg>
       Continue with Google
     </button>
-    <p id="google-note" class="form-note" hidden>Google sign-in turns on when the real accounts are set up. For now, please log in with your email and password below.</p>
+
     <div class="auth-divider"><span>or</span></div>
 
     <label for="login-email">Email</label>
@@ -36,7 +36,7 @@
 
     <p id="login-error" class="form-error" hidden></p>
     <button type="submit" class="btn-primary">Log In</button>
-    <p id="forgot-note" class="form-note" hidden>This is a demo site, so password reset is not turned on yet. For the demo, any password with 4 or more characters works.</p>
+    <p id="forgot-note" class="form-note" hidden>Password reset by email is not turned on yet. If you are locked out, email us at support@elitesaiacademy.com and we will help you get back in.</p>
     <button type="button" id="forgot-link" class="text-link">Forgot password</button>
   </form>
 
@@ -53,7 +53,7 @@
       <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.3c0-.9-.1-1.5-.3-2.2H12v4.3h6.5c-.1 1.1-.8 2.7-2.4 3.8l3.7 2.9c2.3-2.1 3.7-5.2 3.7-8.8z"/><path fill="#34A853" d="M12 24c3.2 0 5.9-1.1 7.9-2.9l-3.7-2.9c-1 .7-2.4 1.2-4.2 1.2-3.2 0-5.9-2.1-6.8-5l-3.9 3C3.3 21.3 7.3 24 12 24z"/><path fill="#FBBC05" d="M5.2 14.4c-.2-.7-.4-1.5-.4-2.4s.1-1.7.4-2.4l-3.9-3C.5 8.2 0 10 0 12s.5 3.8 1.3 5.4l3.9-3z"/><path fill="#EA4335" d="M12 4.7c1.8 0 3 .8 3.7 1.4l3.3-3.2C17.9 1.1 15.2 0 12 0 7.3 0 3.3 2.7 1.3 6.6l3.9 3c.9-2.8 3.6-4.9 6.8-4.9z"/></svg>
       Continue with Google
     </button>
-    <p id="google-note-signup" class="form-note" hidden>Google sign-in turns on when the real accounts are set up. For now, please create your account with your email and password below.</p>
+
     <div class="auth-divider"><span>or</span></div>
 
     <label for="signup-email">Email</label>
@@ -61,7 +61,7 @@
 
     <label for="signup-password">Password</label>
     <div class="password-field">
-      <input id="signup-password" type="password" autocomplete="new-password" placeholder="At least 4 characters">
+      <input id="signup-password" type="password" autocomplete="new-password" placeholder="At least 8 characters">
       <button type="button" class="eye-btn" data-eye="signup-password" aria-label="Show or hide password">
         <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
       </button>
@@ -173,7 +173,7 @@
       <h2 class="page-title">Profile</h2>
       <div class="plain-card">
         <p><strong>Email:</strong> <span id="profile-email">—</span></p>
-        <p class="small-note">This is a demo site. Your details are only kept on this device while you look around — nothing is saved on a server.</p>
+        <p class="small-note">Your account and your progress are saved securely. Sign in on any device and pick up right where you left off.</p>
       </div>
     </section>
 
@@ -206,6 +206,6 @@
   </main>
 </div>
 
-<script src="app.js?v=2"></script>
+<script src="app.js?v=3"></script>
 </body>
 </html>
