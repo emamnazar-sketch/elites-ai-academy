@@ -5,6 +5,8 @@ var LEVELS = [
   {
     n: 1,
     title: "Foundations & Getting Started",
+    headline: ["START", "HERE"],
+    desc: "Begin your journey — what AI is and your first chat",
     status: "completed",
     done: 12,
     modules: [
@@ -29,6 +31,8 @@ var LEVELS = [
   {
     n: 2,
     title: "Effective Prompting & Smart Communication",
+    headline: ["ASK IT", "RIGHT"],
+    desc: "Learn to ask so AI gives you answers you can use",
     status: "in-progress",
     done: 6,
     modules: [
@@ -53,6 +57,8 @@ var LEVELS = [
   {
     n: 3,
     title: "Everyday Life & Workplace Productivity",
+    headline: ["AI EVERY", "DAY"],
+    desc: "Use AI for home, family, and work tasks",
     status: "not-started",
     done: 0,
     modules: [
@@ -77,6 +83,8 @@ var LEVELS = [
   {
     n: 4,
     title: "AI Safety, Fact-Checking & Scam Defense",
+    headline: ["STAY", "SAFE"],
+    desc: "Spot fakes, scams, and wrong answers before they hurt you",
     status: "not-started",
     done: 0,
     modules: [
@@ -109,6 +117,8 @@ var LEVELS = [
   {
     n: 5,
     title: "Modern Frontier Tools, Multimedia & Agents",
+    headline: ["NEWEST", "TOOLS"],
+    desc: "Pictures, voice, custom helpers, and AI agents",
     status: "not-started",
     done: 0,
     modules: [
@@ -313,23 +323,29 @@ function renderCards() {
     var hours = level.modules.length;
     var card = document.createElement("button");
     card.className = "card";
+    var pct = levelPercent(level);
     var html =
-      '<div class="card-art art-' + level.n + '">' +
-        '<span class="level-num">' + level.n + '</span>' +
-        '<span class="level-word">Level ' + level.n + '</span>' +
+      '<div class="card-thumb">' +
+        '<span class="thumb-badge">Level ' + level.n + '</span>' +
+        '<span class="thumb-headline">' +
+          '<span class="thumb-line1">' + level.headline[0] + '</span>' +
+          '<span class="thumb-line2">' + level.headline[1] + '</span>' +
+        '</span>' +
       '</div>' +
       '<div class="card-body">' +
         '<p class="card-title">Level ' + level.n + ': ' + level.title + '</p>' +
+        '<p class="card-desc">' + level.desc + '</p>' +
         '<span class="status-badge status-' + level.status + '">' + STATUS_LABEL[level.status] + '</span>' +
-        '<p class="card-meta">' + total + ' lessons · about ' + hours + (hours === 1 ? ' hour' : ' hours') + '</p>';
-    if (level.status === "in-progress") {
-      html +=
-        '<div class="progress-track"><div class="progress-fill" style="width:' + levelPercent(level) + '%"></div></div>' +
-        '<p class="progress-label">' + level.done + ' of ' + total + ' lessons done</p>';
-    }
-    if (level.status === "completed") {
-      html += '<p class="progress-label">All ' + total + ' lessons done</p>';
-    }
+        '<p class="card-meta">' + total + ' lessons · about ' + hours + (hours === 1 ? ' hour' : ' hours') + '</p>' +
+        '<div class="progress-track bar-lg">' +
+          '<div class="progress-fill" style="width:' + pct + '%"></div>' +
+          '<span class="progress-pct">' + pct + '%</span>' +
+        '</div>' +
+        '<p class="progress-label">' +
+          (level.status === "completed"
+            ? 'All ' + total + ' lessons done'
+            : level.done + ' of ' + total + ' lessons done') +
+        '</p>';
     html +=
       '</div>' +
       '<div class="card-foot"><span class="card-action">' + STATUS_ACTION[level.status] + '</span></div>';
